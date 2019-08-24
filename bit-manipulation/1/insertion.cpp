@@ -7,10 +7,10 @@
 	{
 	
 	int M = 2048;
-	int N = 190;
+	int N = 31;
 
 	int start = 0;
-	int end = 9;
+	int end = 3;
 	int main_mask = 0;	
 
 	//std::cout<<std::bitset<32>(0xFFFFFFFF)<<std::endl;
@@ -21,7 +21,7 @@
 	
 
 
-	for(int i = end; i > start-1 ; --i)
+	for(int i = end; i >= start ; --i)
 	{
 		main_mask += 1 << i;
 
