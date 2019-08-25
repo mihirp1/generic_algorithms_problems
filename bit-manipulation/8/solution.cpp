@@ -29,14 +29,25 @@
 
 	std::cout <<"Pixel Location : " << x1_pixel_location<<" "<<x2_pixel_location<<std::endl; 
 	
+	int mask;
 
-	for(int i = 1 ; i <= array_size/8 ; ++i)
+	for(int i = 0 ; i < array_size/8 ; ++i)
 	{
-		if( i < x1/8 )
+		if( i+1 < x1/8 )
 		{
-			vec[i-1] = 0x00;
+			vec[i] = 0x00;
 		}
-		else if()
+		else if( i+1 < x1 /8 && i + 1 > x2)
+		{
+			vec[i] = 0x00;
+		}
+
+		else if (8 - (x1_pixel_location % 8)  )
+		{
+			vec[i] = 1;	
+
+		}
+		
 
 	}
 
