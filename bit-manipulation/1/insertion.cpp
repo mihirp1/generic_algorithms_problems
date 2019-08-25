@@ -17,20 +17,25 @@
 
 	//Create A Mask
 	int mask = 0xFFFFFFFF;
-	//std::cout << mask<<std::endl;	
-	
+	std::cout << "Mask : "<<std::bitset<32>(mask)<<std::endl;	
+	std::cout << " Positive Negative : " << std::bitset<32>(7)<<" "<<std::bitset<32>(-7)<<std::endl;	
+	int i = 22;
+	int test = 0;
+	test = (1 << i) - 1;
+	std::cout << "Test : "<<std::bitset<32>(test)<<std::endl;
+	std::cout << "Test New : "<<std::bitset<32>(test & mask)<<std::endl;
 
 
 	for(int i = end; i >= start ; --i)
 	{
-		main_mask += 1 << i;
+		main_mask |= 1 << i;
 
 	}
 
-	std::cout<<std::bitset<32>(main_mask)<<std::endl;
+	std::cout<<"Main Mask : "<<std::bitset<32>(main_mask)<<std::endl;
 
 	main_mask = ~main_mask;
-	std::cout<<std::bitset<32>(main_mask)<<std::endl;	
+	std::cout<<"Main Mask Inverse : "<<std::bitset<32>(main_mask)<<std::endl;	
 
 	int changed_number;
 
