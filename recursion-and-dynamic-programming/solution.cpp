@@ -1,48 +1,43 @@
+//https://leetcode.com/problems/generate-parentheses/
+class Solution {
+public:
+    vector<string> generateParenthesis(int n) {
+        
+        vector<string> main; 
+        string temp = "";
+        recurse(n, 0 , 0, main, temp); 
+     
+        return main;
+    }
+    
+    void recurse(int n , int open, int close, vector<string>& main, string temp)
+    {
+        if(close == n) 
+        {
+            main.push_back(temp);
+            std::cout<<temp<<std::endl;
+            //temp = "";
+            return;
+        }
 
-://www.hackerrank.com/challenges/ctci-recursive-staircase/problem
+            if(open < n)
+            {
 
-#include <bits/stdc++.h>
+            recurse(n , open+1,close ,main, temp + "(");
+            }
+        
+            if(close < open)
+            {
+                
+            recurse(n , open, close+1 , main, temp + ")");
+            }
+        
+        
+        
+        //recurse(n,0,0,main,"");
+        //return main;
 
-using namespace std;
-
-// Complete the stepPerms function below.
-int stepPerms(int n) {
-
-unordered_map<int,int> hash;
-hash[0] = 1;
-hash[1] = 1;
-hash[2] = 2;
-hash[3] = 4;
-
-for(int i = 4 ; i <= n ; ++i )
-{
-    hash[i] = hash[i-1] + hash[i-2] + hash[i-3];
-}
-
-return hash[n];
-
-}
-
-int main()
-{
-    ofstream fout(getenv("OUTPUT_PATH"));
-
-    int s;
-    cin >> s;
-    cin.ignore(numeric_limits<streamsize>::max(), '\n');
-
-    for (int s_itr = 0; s_itr < s; s_itr++) {
-        int n;
-        cin >> n;
-        cin.ignore(numeric_limits<streamsize>::max(), '\n');
-
-        int res = stepPerms(n);
-
-        fout << res << "\n";
     }
 
-    fout.close();
-
-    return 0;
-}
-
+    
+};
